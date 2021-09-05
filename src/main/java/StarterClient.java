@@ -39,7 +39,7 @@ public class StarterClient {
     }
 
     /**
-     * Assign all arguments to StarterClient.class
+     * Assign all arguments
      *
      * @param args
      */

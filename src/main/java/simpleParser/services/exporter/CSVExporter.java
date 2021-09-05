@@ -14,11 +14,22 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 
+/**
+ * CSVExporter is an implementation of BasicExporter.
+ * It provides functionality to export invoices into CSV files
+ */
 public class CSVExporter implements BasicExporter {
 
+    /**
+     * Export single invoice to specific output path in CSV format.
+     *
+     * @param invoice
+     * @param outputFileAbsolutePath
+     * @throws IOException
+     */
     @Override
-    public void exportSingleInvoice(Invoice invoice, String newFileUrl) throws IOException {
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(newFileUrl + FileConstants.CSV_EXTENSION), StandardOpenOption.APPEND,
+    public void exportSingleInvoice(Invoice invoice, String outputFileAbsolutePath) throws IOException {
+        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outputFileAbsolutePath + FileConstants.CSV_EXTENSION), StandardOpenOption.APPEND,
                 StandardOpenOption.CREATE);
         CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
                 .withHeader(TagConstants.getHeaders()));
